@@ -30,7 +30,7 @@ metadata {
         attribute "numButtons", "string"
         attribute "buttonOneLastActivity", "string"
         attribute "buttonTwoLastActivity", "string"
-	attribute "buttonThreeLastActivity", "string"
+        attribute "buttonThreeLastActivity", "string"
         
         fingerprint mfr: "026E", prod: "5643", model: "5A31"
         fingerprint deviceId: "0x0101", inClusters: "0x5E,0x80,0x72,0x59,0x85,0x5A,0x86,0x84", outClusters: "0x20,0x82,0x5B,0x26", deviceJoinName: "Z-Wave Somfy Remote"
