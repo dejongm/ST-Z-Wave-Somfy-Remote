@@ -20,7 +20,7 @@
  *
  */
 metadata {
-	definition (name: "Z-Wave Somfy Remote", namespace: "ericvitale", author: "ericvitale@gmail.com") {
+	definition (name: "Z-Wave Somfy Remote", namespace: "dejongm", author: "dejongm@gmail.com") {
         capability "Actuator"
 		capability "Button"
 		capability "Configuration"
@@ -30,6 +30,7 @@ metadata {
         attribute "numButtons", "string"
         attribute "buttonOneLastActivity", "string"
         attribute "buttonTwoLastActivity", "string"
+	attribute "buttonThreeLastActivity", "string"
         
         fingerprint mfr: "026E", prod: "5643", model: "5A31"
         fingerprint deviceId: "0x0101", inClusters: "0x5E,0x80,0x72,0x59,0x85,0x5A,0x86,0x84", outClusters: "0x20,0x82,0x5B,0x26", deviceJoinName: "Z-Wave Somfy Remote"
@@ -55,6 +56,14 @@ metadata {
         valueTile("ButtonTwoActivity", "device.buttonTwoLastActivity", width: 6, height: 2) {
         	state "default", label: '${currentValue}'
         }
+	    
+        valueTile("ButtonThree", "device.button3", width: 6, height: 2) {
+        	state "default", label: 'Button 3 was ${currentValue}.'
+        }
+        
+        valueTile("ButtonThreeActivity", "device.buttonThreeLastActivity", width: 6, height: 2) {
+        	state "default", label: '${currentValue}'
+        }
         
         valueTile("NumberOfButtons", "device.numberOfButtons", width: 6, height: 2) {
         	state "default", label: 'This remote has ${currentValue} buttons.'
@@ -77,9 +86,9 @@ def updated() {
 
 def initialization() {
 	log("Log level selected = ${logging}.", "INFO")
-    log("Number of Buttons = 2.", "INFO")
-    sendEvent(name: "numberOfButtons", value: 2)
-    sendEvent(name: "numButtons", value: "2")
+    log("Number of Buttons = 3.", "INFO")
+    sendEvent(name: "numberOfButtons", value: 3)
+    sendEvent(name: "numButtons", value: "3")
 }
 
 def buttonEvent(buttonNumber, buttonAction) {
@@ -91,6 +100,9 @@ def buttonEvent(buttonNumber, buttonAction) {
             break
         case 2:
         	updateButtonTwoLastActivity(new Date())
+            break
+        case 3:
+        	updateButtonThreeLastActivity(new Date())
             break
         default:
         	break
