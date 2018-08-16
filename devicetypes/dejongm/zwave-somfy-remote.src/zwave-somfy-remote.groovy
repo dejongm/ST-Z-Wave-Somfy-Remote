@@ -69,8 +69,8 @@ metadata {
         	state "default", label: 'This remote has ${currentValue} buttons.'
         }
         
-        main "ButtonOne", "ButtonOneActivity", "ButtonTwo", "ButtonTwoActivity", "NumberOfButtons"
-        details "ButtonOne", "ButtonOneActivity", "ButtonTwo", "ButtonTwoActivity", "NumberOfButtons"
+        main "ButtonOne", "ButtonOneActivity", "ButtonTwo", "ButtonTwoActivity", "ButtonThree", "ButtonThreeActivity", "NumberOfButtons"
+        details "ButtonOne", "ButtonOneActivity", "ButtonTwo", "ButtonTwoActivity", "ButtonThree", "ButtonThreeActivity", "NumberOfButtons"
 	}
 }
 
@@ -153,6 +153,11 @@ def updateButtonOneLastActivity(lastActivity) {
 def updateButtonTwoLastActivity(lastActivity) {
 	def finalString = lastActivity?.format('MM/d/yyyy hh:mm a',location.timeZone)    
 	sendEvent(name: "buttonTwoLastActivity", value: finalString, source: "DEVICE")
+}
+
+def updateButtonThreeLastActivity(lastActivity) {
+	def finalString = lastActivity?.format('MM/d/yyyy hh:mm a',location.timeZone)    
+	sendEvent(name: "buttonThreeLastActivity", value: finalString, source: "DEVICE")
 }
 
 def parse(String description) {
