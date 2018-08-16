@@ -41,31 +41,31 @@ metadata {
     }
 
     tiles(scale: 2) {
-        valueTile("ButtonOne", "device.button1", width: 6, height: 2) {
+        valueTile("ButtonOne", "device.button1", width: 6, height: 1) {
         	state "default", label: 'Button 1 was ${currentValue}.'
         }
         
-        valueTile("ButtonOneActivity", "device.buttonOneLastActivity", width: 6, height: 2) {
+        valueTile("ButtonOneActivity", "device.buttonOneLastActivity", width: 6, height: 1) {
         	state "default", label: '${currentValue}'
         }
         
-        valueTile("ButtonTwo", "device.button2", width: 6, height: 2) {
+        valueTile("ButtonTwo", "device.button2", width: 6, height: 1) {
         	state "default", label: 'Button 2 was ${currentValue}.'
         }
         
-        valueTile("ButtonTwoActivity", "device.buttonTwoLastActivity", width: 6, height: 2) {
+        valueTile("ButtonTwoActivity", "device.buttonTwoLastActivity", width: 6, height: 1) {
         	state "default", label: '${currentValue}'
         }
 	    
-        valueTile("ButtonThree", "device.button3", width: 6, height: 2) {
+        valueTile("ButtonThree", "device.button3", width: 6, height: 1) {
         	state "default", label: 'Button 3 was ${currentValue}.'
         }
         
-        valueTile("ButtonThreeActivity", "device.buttonThreeLastActivity", width: 6, height: 2) {
+        valueTile("ButtonThreeActivity", "device.buttonThreeLastActivity", width: 6, height: 1) {
         	state "default", label: '${currentValue}'
         }
         
-        valueTile("NumberOfButtons", "device.numberOfButtons", width: 6, height: 2) {
+        valueTile("NumberOfButtons", "device.numberOfButtons", width: 6, height: 1) {
         	state "default", label: 'This remote has ${currentValue} buttons.'
         }
         
